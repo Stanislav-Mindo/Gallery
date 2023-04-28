@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.gallery-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10px;
+}
+.wrapper__gallery{
+  max-width: 1100px;
+}
+.wrapper__gallery .gallery{
+  display: flex;
+  flex-wrap: wrap;
+}
+.gallery span {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+.gallery .image {
+  padding: 7px;
+  width: calc(100% / 3);
+}
+.gallery .image img {
+  width: 100%;  
+  transition: all 0.3s ease;
+ 
+}
+.gallery .image:hover img{
+  transform: scale(1.05);
+}
+@media (max-width: 1000px){
+  .gallery .image {
+    width: calc(100% / 2);
+  }
+}
+@media (max-width: 600px){
+  .gallery .image {
+    width: 100%;
+    padding: 5px;
+  }
+}
+.preview-box{
+  position: fixed;
+  max-width: 700px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background-color: #ffffff;
+  padding: 0 5px 5px 5px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+.preview-box.show{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all 0.3s ease;
+}
+.preview-box .details{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px 12px 10px;
+}
+.preview-box .details .icon {
+  color: #088193;
+  cursor: pointer;
+  font-size: 20px;
+}
+.details .details-title{
+  display: flex;
+  font-size: 18px;
+  font-weight: 400;
+}
+.details .details-title p {
+  margin: 0 5px;
+}
+.details .details-title p.current-img{
+  font-weight: 500;
+}
+.preview-box .img-box{
+  display: flex;
+  width: 100%;
+}
+.img-box .slide{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  cursor: pointer;
+  color: #088193;
+  width: 60px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  z-index: 3; 
+}
+.img-box .slide.prev{
+  left: 0;
+}
+.img-box .slide.next{
+  right: 0;
+}
+.preview-box .img-box img{
+  width: 100%;
+  border-radius: 0 0 3px 3px;
+}
+
+.shadow{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.4);
+}
